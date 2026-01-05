@@ -1,27 +1,103 @@
-/* src/styles/global.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+ /* src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #0f172a;       /* S-MART Royal Blue */
-  --secondary: #1e293b;     /* Dark Slate */
-  --accent: #f97316;        /* S-MART Orange */
-  --text-dark: #334155;
-  --bg-light: #f1f5f9;
+  /* --- YOUR ORIGINAL THEME (LOCKED) --- */
+  --primary: #0f172a;       /* S-MART Royal Blue (Sidebar/Header) */
+  --secondary: #1e293b;     /* Dark Slate (Cards/Hover) */
+  --accent: #f97316;        /* S-MART Orange (Buttons/Active) */
+  --accent-hover: #ea580c;  /* Darker Orange */
+  
+  --text-dark: #334155;     /* Main Text */
+  --text-light: #94a3b8;    /* Muted Text */
+  --bg-light: #f1f5f9;      /* Background */
   --white: #ffffff;
+  
+  --border-color: #e2e8f0;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  font-family: 'Poppins', sans-serif; 
+}
 
-body { background-color: var(--bg-light); color: var(--text-dark); }
+body { 
+  background-color: var(--bg-light); 
+  color: var(--text-dark); 
+  -webkit-font-smoothing: antialiased;
+}
 
-/* Common Buttons */
+/* --- Common Buttons (Your Style) --- */
 .btn {
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: var(--radius);
   border: none;
   cursor: pointer;
   font-weight: 600;
   transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Icon aur text ke beech gap */
 }
-.btn-primary { background: var(--accent); color: white; }
-.btn-primary:hover { background: #ea580c; transform: translateY(-2px); }
+
+.btn-primary { 
+  background: var(--accent); 
+  color: var(--white); 
+}
+
+.btn-primary:hover { 
+  background: var(--accent-hover); 
+  transform: translateY(-2px); 
+}
+
+/* --- New Utility Classes for Admin Panel --- */
+
+/* Card Container (Forms/Tables ke liye) */
+.card {
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+/* Form Inputs (Professional Look) */
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: #f8fafc;
+  font-size: 14px;
+  color: var(--text-dark);
+  margin-top: 6px;
+  margin-bottom: 16px;
+  transition: 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+/* Labels */
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  display: block;
+}
+
+/* Page Titles */
+h1, h2, h3 {
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
